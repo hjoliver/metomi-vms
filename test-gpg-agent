@@ -1,0 +1,7 @@
+#!/bin/bash
+set -x
+killall -u $USER gpg-agent
+eval "$(gpg-agent -vv --daemon --allow-preset-passphrase --debug-level 9)"
+/usr/libexec/gpg-preset-passphrase -vv --preset -P test myid
+echo "GET_PASSPHRASE --no-ask myid Err Pmt Des" | gpg-connect-agent -vv
+killall -u $USER gpg-agent
