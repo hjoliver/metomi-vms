@@ -15,7 +15,7 @@ fi
 dos2unix -n /vagrant/usr/local/bin/mosrs-cache-password /usr/local/bin/mosrs-cache-password
 # Add script to start gpg-agent and cache the password when needed and source it in .bashrc
 dos2unix -n /vagrant/usr/local/bin/mosrs-setup-gpg-agent /usr/local/bin/mosrs-setup-gpg-agent
-echo ". /usr/local/bin/mosrs-setup-gpg-agent" >>/home/vagrant/.bashrc
+echo "#. /usr/local/bin/mosrs-setup-gpg-agent" >>/home/vagrant/.bashrc
 # Start & stop gpg-agent to avoid errors on first use
 sudo -H -u vagrant /usr/bin/gpg-agent --daemon
 sudo -H -u vagrant /usr/bin/pkill gpg-agent
