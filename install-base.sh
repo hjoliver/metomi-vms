@@ -107,7 +107,8 @@ ln -sf /opt/metomi-site/conf/global.rc /opt/cylc-$CYLC_VERSION2/conf/global.rc
 curl -L -s -S https://github.com/oliver-sanders/cylc-tutorial/archive/master.tar.gz | tar -xz -C /opt
 sudo -u vagrant mkdir -p /home/vagrant/Desktop
 sudo -u vagrant ln -s /opt/cylc-tutorial-master/document.pdf /home/vagrant/Desktop/cylc-tutorial.pdf
-sudo -u vagrant cp -r /opt/cylc-tutorial-master/suites /home/vagrant/
+sudo -u vagrant mkdir -p /home/vagrant/tutorial
+sudo -u vagrant cp -r /opt/cylc-tutorial-master/suites /home/vagrant/tutorial/
 
 #### Install Rose
 if [[ $dist == ubuntu ]]; then
@@ -167,6 +168,7 @@ if [[ $dist == redhat ]]; then
   echo '[[ "$-" != *i* ]] && return # Stop here if not running interactively' >>/home/vagrant/.bashrc
 fi
 echo "[[ -f /opt/rose/etc/rose-bash-completion ]] && . /opt/rose/etc/rose-bash-completion" >>/home/vagrant/.bashrc
+echo "[[ -f /opt/cylc/conf/cylc-bash-completion ]] && . /opt/cylc/conf/cylc-bash-completion" >>/home/vagrant/.bashrc
 
 # Configure firefox as the default PDF viewer
 sudo -u vagrant mkdir -p /home/vagrant/.local/share/applications
