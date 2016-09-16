@@ -3,6 +3,9 @@ FCM_VERSION=2016.05.1
 CYLC_VERSION=6.11.0
 ROSE_VERSION=2016.09.0
 
+CYLC_VERSION2=6.10.2
+ROSE_VERSION2=2016.06.0
+
 if [[ $dist == ubuntu ]]; then
   #### Remove some packages we don't need
   apt-get remove --auto-remove -y chef puppet
@@ -95,6 +98,16 @@ make version
 mkdir -p /opt/metomi-site/conf
 dos2unix -n /vagrant/opt/metomi-site/conf/global.rc /opt/metomi-site/conf/global.rc
 ln -sf /opt/metomi-site/conf/global.rc /opt/cylc-$CYLC_VERSION/conf/global.rc
+# Install previous version in case we hit problems with the new release
+curl -L -s -S https://github.com/cylc/cylc/archive/$CYLC_VERSION2.tar.gz | tar -xz -C /opt
+cd /opt/cylc-$CYLC_VERSION2
+make version
+ln -sf /opt/metomi-site/conf/global.rc /opt/cylc-$CYLC_VERSION2/conf/global.rc
+# Install tutorial files
+curl -L -s -S https://github.com/oliver-sanders/cylc-tutorial/archive/master.tar.gz | tar -xz -C /opt
+sudo -u vagrant mkdir -p /home/vagrant/Desktop
+sudo -u vagrant ln -s /opt/cylc-tutorial-master/document.pdf /home/vagrant/Desktop/cylc-tutorial.pdf
+sudo -u vagrant cp -r /opt/cylc-tutorial-master/suites /home/vagrant/
 
 #### Install Rose
 if [[ $dist == ubuntu ]]; then
@@ -128,6 +141,9 @@ elif [[ $dist == redhat ]]; then
   dos2unix -n /vagrant/opt/metomi-site/etc/rose.conf.redhat /opt/metomi-site/etc/rose.conf
 fi
 ln -sf /opt/metomi-site/etc/rose.conf /opt/rose-$ROSE_VERSION/etc/rose.conf
+# Install previous version in case we hit problems with the new release
+curl -L -s -S https://github.com/metomi/rose/archive/$ROSE_VERSION2.tar.gz | tar -xz -C /opt
+ln -sf /opt/metomi-site/etc/rose.conf /opt/rose-$ROSE_VERSION2/etc/rose.conf
 
 #### Configure syntax highlighting & bash completion
 if [[ $dist == redhat && $release == centos6 ]]; then
