@@ -243,8 +243,8 @@ if [[ $dist == redhat && $release == fedora* ]]; then
 fi
 
 # Install tutorial files
-curl -L -s -S https://github.com/oliver-sanders/cylc-tutorial/archive/master.tar.gz | tar -xz -C /opt
+curl -L -s -S https://github.com/hjoliver/cylc-tutorial/archive/July2017.tar.gz | tar -xz -C /opt
 sudo -u vagrant mkdir -p /home/vagrant/Desktop
-sudo -u vagrant ln -s /opt/cylc-tutorial-master/document.pdf /home/vagrant/Desktop/cylc-tutorial.pdf
+sudo -u vagrant ln -s /opt/cylc-tutorial-July2017/document.pdf /home/vagrant/Desktop/cylc-tutorial.pdf
 sudo -u vagrant mkdir -p /home/vagrant/tutorial
-sudo -u vagrant cp -r /opt/cylc-tutorial-master/suites /home/vagrant/tutorial/
+sudo -u vagrant cp -r /opt/cylc-tutorial-July2017/suites /home/vagrant/cylc-tutorial/

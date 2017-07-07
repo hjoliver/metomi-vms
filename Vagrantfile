@@ -4,7 +4,7 @@
 VAGRANTFILE_API_VERSION = "2"
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
-  config.vm.define "metomi-vm-ubuntu-1604-tutorial"
+  config.vm.define "metomi-vm-ubuntu-1604-cylc-tutorial"
   config.vm.box = "bento/ubuntu-16.04"
   # Remove "desktop" from the args below if only accessing via SSH
   # Remove "mosrs" from the args below if not accessing the Met Office Science Repository Service
@@ -12,7 +12,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.ssh.forward_x11 = true
 
   config.vm.provider "virtualbox" do |v|
-    v.name = "metomi-vm-ubuntu-1604-tutorial"
+    v.name = "metomi-vm-ubuntu-1604-cylc-tutorial"
     # Comment out the line below if only accessing via SSH
     v.gui = true
     # Modify the line below if you need more than 1GB RAM
