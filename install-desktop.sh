@@ -13,7 +13,7 @@ if [[ $dist == ubuntu ]]; then
   apt-get install -q -y language-pack-en
   update-locale LANG=en_GB.utf8
   # Set UK keyboard
-  perl -pi -e 's/XKBLAYOUT="us"/XKBLAYOUT="gb"/;' /etc/default/keyboard
+  #perl -pi -e 's/XKBLAYOUT="us"/XKBLAYOUT="gb"/;' /etc/default/keyboard
   if [[ $release == 1404 ]]; then
     # Move panel to top (works better when resizing the screen)
     perl -pi -e 's/edge=bottom/edge=top/;' /usr/share/lxpanel/profile/LXDE/panels/panel

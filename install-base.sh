@@ -247,4 +247,4 @@ curl -L -s -S https://github.com/hjoliver/cylc-tutorial/archive/July2017.tar.gz 
 sudo -u vagrant mkdir -p /home/vagrant/Desktop
 sudo -u vagrant ln -s /opt/cylc-tutorial-July2017/document.pdf /home/vagrant/Desktop/cylc-tutorial.pdf
 sudo -u vagrant mkdir -p /home/vagrant/tutorial
-sudo -u vagrant cp -r /opt/cylc-tutorial-July2017/suites /home/vagrant/cylc-tutorial/
+sudo -u vagrant cp -r /opt/cylc-tutorial-July2017/suites /home/vagrant/cylc-tutorial-suites/
