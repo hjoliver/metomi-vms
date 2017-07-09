@@ -60,18 +60,11 @@ the Windows menu), select the *metomi-vm-ubuntu-1604-cylc-tutorial* VM and run
 it.
 
 Either way, __inside the VM your Linux username and password are both
-vagrant__. You have sudo access to the system and can install additional
+"vagrant"__. You have sudo access to the system and can install additional
 software via the Ubuntu package manager, e.g. `sudo apt-get install htop`.
 
-If your VM includes support for the Met Office Science Repository Service then
-you will be prompted for your password (and also your user name the first time
-you use the VM).
-If you get your MOSRS username or password wrong and Subversion fails to
-connect, just run `mosrs-cache-password` to try again.
-
-You should find the tutorial PDF document on the desktop
-(`$HOME/Desktop/cylc-tutorial.pdf`) and the tutorial example suites under
-`$HOME/cylc-tutorial/`
+You will find the tutorial PDF and example suites in `$HOME`, and a link to the
+PDF on your Desktop.
 
 Cylc and Rose should work already:
 ```
@@ -90,6 +83,13 @@ Guide](https://cylc.github.io/cylc/documentation.html#the-cylc-user-guide).
 To shutdown the VM you can use the "power button" at bottom right hand corner
 of the Linux desktop, or you can issue the command `vagrant halt` from the
 command window where you launched the VM.
+
+If your VM includes support for the Met Office Science Repository Service then
+you will be prompted for your password (and also your user name the first time
+you use the VM). Just hit Enter to ignore this, or disable the prompt by
+commenting out the last line in `$HOME/.bashrc`.
+If you get your MOSRS username or password wrong and Subversion fails to
+connect, just run `mosrs-cache-password` to try again.
 
 ## Etc
 
